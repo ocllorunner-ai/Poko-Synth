@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="brand">"Poko "</string>
+    <string name="synth_name">Synth</string>
+    <string name="keys_name">Keys</string>
+
+    <string name="wave">Wave</string>
+    <string name="wave_sine">Sine</string>
+    <string name="wave_square">Square</string>
+    <string name="wave_triangle">Triangle</string>
+
+    <string name="lowest">Lowest</string>
+    <string name="range">Range</string>
+    <string name="pitch">Pitch</string>
+    <string name="pitch_free">Free</string>
+    <string name="pitch_snap">Snap</string>
+
+    <string name="hints">Hints</string>
+    <string name="lines">Lines</string>
+    <string name="notes">Notes</string>
+    <string name="poko">Poko</string>
+
+    <string name="axis_volume">↑ Volume</string>
+    <string name="axis_pitch">Pitch →</string>
+    <string name="touch_to_play">Touch to play</string>
+    <string name="touch_hint">Slide left and right for pitch, up and down for volume (up to 5 fingers)</string>
+
+    <string name="leftmost">Leftmost</string>
+    <string name="key_count">Keys</string>
+    <string name="volume">Volume</string>
+
+    <string-array name="note_names">
+        <item>C</item><item>C#</item><item>D</item><item>D#</item><item>E</item><item>F</item>
+        <item>F#</item><item>G</item><item>G#</item><item>A</item><item>A#</item><item>B</item>
+    </string-array>
+</resources>

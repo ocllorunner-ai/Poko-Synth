@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="brand">ポコ</string>
+    <string name="synth_name">シンセ</string>
+    <string name="keys_name">鍵盤</string>
+
+    <string name="wave">音色</string>
+    <string name="wave_sine">正弦波</string>
+    <string name="wave_square">矩形波</string>
+    <string name="wave_triangle">三角波</string>
+
+    <string name="lowest">最低音</string>
+    <string name="range">音域</string>
+    <string name="pitch">音程</string>
+    <string name="pitch_free">フリー</string>
+    <string name="pitch_snap">半音</string>
+
+    <string name="hints">説明表示</string>
+    <string name="lines">線表示</string>
+    <string name="notes">音名表示</string>
+    <string name="poko">ポコ表示</string>
+
+    <string name="axis_volume">↑ 音量</string>
+    <string name="axis_pitch">音の高さ →</string>
+    <string name="touch_to_play">さわって鳴らす</string>
+    <string name="touch_hint">指を置いて左右に動かすと音程、上下で音量が変わります（最大5本）</string>
+
+    <string name="leftmost">いちばん左</string>
+    <string name="key_count">鍵盤の数</string>
+    <string name="volume">音量</string>
+
+    <string-array name="note_names">
+        <item>ド</item><item>ド#</item><item>レ</item><item>レ#</item><item>ミ</item><item>ファ</item>
+        <item>ファ#</item><item>ソ</item><item>ソ#</item><item>ラ</item><item>ラ#</item><item>シ</item>
+    </string-array>
+</resources>
