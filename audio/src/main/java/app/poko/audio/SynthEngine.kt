@@ -158,6 +158,9 @@ class SynthEngine(context: Context, maxVoices: Int = 10) {
         if (v.trigger) {
             v.trigger = false
             v.freq = v.targetFreq.toDouble()
+            // Remember the note's loudness now. The UI zeroes targetGain on key release,
+            // but a patch fades out through its own envelope instead.
+            v.gain = v.targetGain.toDouble()
             v.stage = 0
             v.fenv = 1.0
             v.ic1 = 0.0
@@ -180,7 +183,7 @@ class SynthEngine(context: Context, maxVoices: Int = 10) {
         val dCoef = if (p.decayMs > 0.0) 1.0 - exp(-1.0 / (p.decayMs * 0.001 * sr)) else 1.0
         val rCoef = 1.0 - exp(-1.0 / (max(p.releaseMs, 1.0) * 0.001 * sr))
         val fCoef = 1.0 - exp(-1.0 / (max(p.filterDecayMs, 1.0) * 0.001 * sr))
-        val level = v.targetGain * p.gain
+        val level = v.gain * p.gain
         val tf = v.targetFreq.toDouble()
 
         val uni = p.unison.coerceIn(1, 3)
