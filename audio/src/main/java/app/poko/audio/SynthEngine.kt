@@ -166,7 +166,10 @@ class SynthEngine(context: Context, maxVoices: Int = 10) {
             v.vibPhase = 0.0
             for (k in 0 until 3) v.phases[k] = k / 3.0
         }
-        if (!v.on && v.stage != 2) v.stage = 2
+        // Struck sounds (they die away even while held) keep decaying at the same pace
+        // after the key is let go, like a real piano, bell or marimba.
+        val letRing = p.sustain == 0.0 && p.decayMs > 0.0
+        if (!v.on && v.stage != 2 && !letRing) v.stage = 2
         if (!v.on && v.env < 1e-5) {
             v.env = 0.0
             v.level = 0f
