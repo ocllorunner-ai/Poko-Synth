@@ -9,6 +9,18 @@
     <string name="wave_square">矩形波</string>
     <string name="wave_triangle">三角波</string>
 
+    <string name="tone_saw">ノコギリ波</string>
+    <string name="tone_chip">8ビット</string>
+    <string name="tone_organ">オルガン</string>
+    <string name="tone_epiano">エレピ</string>
+    <string name="tone_bell">ベル</string>
+    <string name="tone_harp">ハープ</string>
+    <string name="tone_strings">ストリングス</string>
+    <string name="tone_pad">パッド</string>
+    <string name="tone_brass">ブラス</string>
+    <string name="tone_flute">フルート</string>
+    <string name="tone_bass">ベース</string>
+
     <string name="lowest">最低音</string>
     <string name="range">音域</string>
     <string name="pitch">音程</string>

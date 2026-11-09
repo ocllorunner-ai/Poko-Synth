@@ -145,7 +145,24 @@ class Stepper(ctx: Context) : LinearLayout(ctx) {
     }
 }
 
-fun Context.caption(s: String): TextView = TextView(this).apply {
+/** A button that shows the current choice ("エレピ ▾") and opens a list when tapped. */
+class PickerButton(ctx: Context) : TextView(ctx) {
+    init {
+        textSize = 13f
+        typeface = Typeface.DEFAULT_BOLD
+        gravity = Gravity.CENTER
+        minWidth = ctx.dpi(120)
+        setPadding(ctx.dpi(14), ctx.dpi(8), ctx.dpi(14), ctx.dpi(8))
+        background = ctx.rounded(Pal.PANEL, Pal.ACCENT)
+        setTextColor(Pal.ACCENT)
+    }
+
+    fun setValue(label: String) {
+        text = "$label  ▾"
+    }
+}
+
+fun Context.caption(s: String): TextView =TextView(this).apply {
     text = s
     textSize = 10f
     letterSpacing = 0.12f

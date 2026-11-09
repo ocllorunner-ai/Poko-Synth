@@ -9,6 +9,18 @@
     <string name="wave_square">Square</string>
     <string name="wave_triangle">Triangle</string>
 
+    <string name="tone_saw">Saw</string>
+    <string name="tone_chip">Chiptune</string>
+    <string name="tone_organ">Organ</string>
+    <string name="tone_epiano">E.Piano</string>
+    <string name="tone_bell">Bell</string>
+    <string name="tone_harp">Harp</string>
+    <string name="tone_strings">Strings</string>
+    <string name="tone_pad">Pad</string>
+    <string name="tone_brass">Brass</string>
+    <string name="tone_flute">Flute</string>
+    <string name="tone_bass">Bass</string>
+
     <string name="lowest">Lowest</string>
     <string name="range">Range</string>
     <string name="pitch">Pitch</string>

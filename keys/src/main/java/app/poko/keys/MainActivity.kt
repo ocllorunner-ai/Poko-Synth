@@ -1,6 +1,7 @@
 package app.poko.keys
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.Gravity
@@ -8,12 +9,13 @@ import android.widget.LinearLayout
 import android.widget.SeekBar
 import app.poko.audio.MATCH
 import app.poko.audio.Pal
+import app.poko.audio.Patches
+import app.poko.audio.PickerButton
 import app.poko.audio.Segmented
 import app.poko.audio.Stepper
 import app.poko.audio.SynthEngine
 import app.poko.audio.Toggle
 import app.poko.audio.WRAP
-import app.poko.audio.Wave
 import app.poko.audio.brandTitle
 import app.poko.audio.dpi
 import app.poko.audio.edgeToEdge
@@ -43,14 +45,18 @@ class MainActivity : Activity() {
             },
         )
 
-        val waves = Wave.values()
-        val waveSeg = Segmented(
-            this,
-            listOf(getString(AR.string.wave_sine), getString(AR.string.wave_square), getString(AR.string.wave_triangle)),
-            st.wave.ordinal,
-        ) {
-            st.wave = waves[it]
-            keyboard.setWave(waves[it])
+        val tonePicker = PickerButton(this)
+        tonePicker.setValue(getString(st.patch.nameRes))
+        tonePicker.setOnClickListener {
+            val names: Array<CharSequence> = Patches.ALL.map { getString(it.nameRes) as CharSequence }.toTypedArray()
+            AlertDialog.Builder(this)
+                .setTitle(getString(AR.string.wave))
+                .setSingleChoiceItems(names, Patches.ALL.indexOf(st.patch)) { dialog, which ->
+                    st.patch = Patches.ALL[which]
+                    tonePicker.setValue(getString(st.patch.nameRes))
+                    dialog.dismiss()
+                }
+                .show()
         }
 
         val lowStep = Stepper(this)
@@ -89,7 +95,7 @@ class MainActivity : Activity() {
 
         val controls = row(
             12, false,
-            group(getString(AR.string.wave), waveSeg),
+            group(getString(AR.string.wave), tonePicker),
             group(getString(AR.string.leftmost), lowStep),
             group(getString(AR.string.key_count), countSeg),
             group(getString(AR.string.volume), volume, dpi(140)),

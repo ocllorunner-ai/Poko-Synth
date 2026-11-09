@@ -1,7 +1,8 @@
 package app.poko.keys
 
 import android.content.SharedPreferences
-import app.poko.audio.Wave
+import app.poko.audio.Patch
+import app.poko.audio.Patches
 
 /** Settings, saved as soon as they change. */
 class KeysState(private val p: SharedPreferences) {
@@ -13,8 +14,9 @@ class KeysState(private val p: SharedPreferences) {
     var oct: Int = p.getInt("oct", 2).coerceIn(1, 3)
         set(v) { field = v; p.edit().putInt("oct", v).apply() }
 
-    var wave: Wave = runCatching { Wave.valueOf(p.getString("wave", "SINE") ?: "SINE") }.getOrDefault(Wave.SINE)
-        set(v) { field = v; p.edit().putString("wave", v.name).apply() }
+    /** Chosen instrument. Falls back to the waveform saved by version 1 (sine/square/triangle). */
+    var patch: Patch = Patches.byId(p.getString("patch", null) ?: p.getString("wave", "SINE")?.lowercase())
+        set(v) { field = v; p.edit().putString("patch", v.id).apply() }
 
     var showNames: Boolean = p.getBoolean("names", true)
         set(v) { field = v; p.edit().putBoolean("names", v).apply() }

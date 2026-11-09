@@ -9,7 +9,6 @@ import android.view.View
 import app.poko.audio.Pal
 import app.poko.audio.SynthEngine
 import app.poko.audio.Voice
-import app.poko.audio.Wave
 import kotlin.math.pow
 import app.poko.audio.R as AR
 
@@ -77,10 +76,11 @@ class KeysView(
     private fun noteOn(id: Int, m: Int) {
         noteOff(id)
         val v = engine.allocate() ?: return
-        v.wave = st.wave
+        v.patch = st.patch
         v.targetFreq = freq(m)
         v.jump = true
         v.targetGain = 0.3f
+        v.trigger = true
         v.on = true
         held[id] = Held(m, v)
         invalidate()
@@ -95,10 +95,6 @@ class KeysView(
 
     fun releaseAll() {
         held.keys.toList().forEach { noteOff(it) }
-    }
-
-    fun setWave(w: Wave) {
-        held.values.forEach { it.voice.wave = w }
     }
 
     override fun onTouchEvent(e: MotionEvent): Boolean {
