@@ -14,6 +14,7 @@
     <string name="tone_organ">Organ</string>
     <string name="tone_epiano">E.Piano</string>
     <string name="tone_bell">Bell</string>
+    <string name="tone_marimba">Marimba</string>
     <string name="tone_harp">Harp</string>
     <string name="tone_strings">Strings</string>
     <string name="tone_pad">Pad</string>

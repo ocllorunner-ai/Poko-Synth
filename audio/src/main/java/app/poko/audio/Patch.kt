@@ -57,6 +57,11 @@ object Patches {
             fmRatio = 3.5, fmIndex = 4.0, fmSustain = 0.1, filterDecayMs = 1300.0,
         ),
         Patch(
+            "marimba", R.string.tone_marimba, Osc.FM, 1.0,
+            attackMs = 1.0, decayMs = 450.0, sustain = 0.0, releaseMs = 150.0,
+            fmRatio = 4.0, fmIndex = 1.3, fmSustain = 0.0, filterDecayMs = 60.0,
+        ),
+        Patch(
             "harp", R.string.tone_harp, Osc.SAW, 1.1,
             attackMs = 1.0, decayMs = 1300.0, sustain = 0.0, releaseMs = 220.0,
             cutoffMul = 1.0, filterEnv = 10.0, filterDecayMs = 220.0,
